@@ -2,6 +2,7 @@
 
 **Lunara** is an intimate, private, authenticated AI reflection companion designed to help people turn fleeting thoughts into quiet understanding. Built with an editorial night-garden aesthetic, Lunara lets users converse with Gemini across four dedicated reflection modes, light signature "Lanterns" of illuminated insight, and preserve memories as permanent, deterministic stars in their personal **Inner Sky**.
 
+Deployed link- https://lunara-yourinnersky.ai.studio
 > **Google Cloud Challenge Verification Label:**  
 > `dev-tutorial=cloud-run-ai-challenge`
 
