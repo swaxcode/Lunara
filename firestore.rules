@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User-isolated reflections subcollection
+    match /users/{userId}/reflections/{reflectionId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+
+      function isValidReflection(data) {
+        return data.userId == userId
+          && data.title is string && data.title.size() <= 200
+          && data.summary is string && data.summary.size() <= 4000
+          && data.themes is list && data.themes.size() <= 10
+          && data.mode in ['listen', 'understand', 'reframe', 'brainstorm']
+          && data.starCoordinates is map
+          && data.starCoordinates.x is number
+          && data.starCoordinates.y is number;
+      }
+
+      // Owner can read and delete their own reflections
+      allow read, delete: if isOwner();
+
+      // Owner can create reflection with valid schema bound to their UID
+      allow create: if isOwner() && isValidReflection(request.resource.data);
+
+      // Owner can update reflection while maintaining immutable userId
+      allow update: if isOwner() 
+                   && request.resource.data.userId == resource.data.userId
+                   && isValidReflection(request.resource.data);
+    }
+  }
+}

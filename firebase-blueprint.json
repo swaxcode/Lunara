@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "Reflection": {
+      "title": "Reflection",
+      "description": "A user-owned reflection and crystallized constellation memory.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique reflection identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The authenticated Firebase UID who owns this reflection."
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Title of the crystallized memory."
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 4000,
+          "description": "Distilled summary of the reflection."
+        },
+        "themes": {
+          "type": "array",
+          "description": "Core themes and emotional resonances identified in the reflection."
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["listen", "understand", "reframe", "brainstorm"],
+          "description": "The reflection mode used."
+        },
+        "starCoordinates": {
+          "type": "object",
+          "description": "Deterministic coordinates for placement in the Inner Sky."
+        },
+        "lantern": {
+          "type": "object",
+          "description": "Optional illuminated synthesis insight."
+        },
+        "openThread": {
+          "type": "object",
+          "description": "Optional unresolved inquiry to revisit later."
+        },
+        "conversation": {
+          "type": "array",
+          "description": "The dialogue turns between user and Lunara."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Epoch timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Epoch timestamp of last update."
+        }
+      },
+      "required": ["userId", "title", "summary", "themes", "mode", "starCoordinates"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/reflections/{reflectionId}": {
+      "schema": "#/entities/Reflection",
+      "description": "Private, authenticated reflections and constellation stars isolated to each user."
+    }
+  }
+}

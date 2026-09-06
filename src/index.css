@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0B0F19;
+    color: #FDFCF7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E2638;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2E3852;
+}
+
+/* Organic Star Twinkles with Low-Amplitude Opacity & Glow (100% -> 93% -> 100% -> 96% -> 100%) */
+@keyframes reflection-star-twinkle-1 {
+  0%, 100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 4px rgba(226, 196, 141, 0.4)); }
+  30% { opacity: 0.92; filter: brightness(0.92) drop-shadow(0 0 2.5px rgba(226, 196, 141, 0.3)); }
+  60% { opacity: 1; filter: brightness(1.06) drop-shadow(0 0 6px rgba(226, 196, 141, 0.6)); }
+  85% { opacity: 0.96; filter: brightness(0.96) drop-shadow(0 0 3.5px rgba(226, 196, 141, 0.35)); }
+}
+
+@keyframes reflection-star-twinkle-2 {
+  0%, 100% { opacity: 0.96; filter: brightness(0.96) drop-shadow(0 0 3px rgba(226, 196, 141, 0.35)); }
+  25% { opacity: 1; filter: brightness(1.08) drop-shadow(0 0 7px rgba(244, 240, 232, 0.65)); }
+  55% { opacity: 0.93; filter: brightness(0.93) drop-shadow(0 0 2.5px rgba(226, 196, 141, 0.25)); }
+  80% { opacity: 1; filter: brightness(1.02) drop-shadow(0 0 4.5px rgba(226, 196, 141, 0.45)); }
+}
+
+@keyframes reflection-star-twinkle-3 {
+  0%, 100% { opacity: 1; filter: brightness(1.03) drop-shadow(0 0 5px rgba(226, 196, 141, 0.5)); }
+  35% { opacity: 0.94; filter: brightness(0.94) drop-shadow(0 0 3px rgba(226, 196, 141, 0.3)); }
+  70% { opacity: 0.98; filter: brightness(0.98) drop-shadow(0 0 4px rgba(226, 196, 141, 0.4)); }
+  90% { opacity: 0.91; filter: brightness(0.91) drop-shadow(0 0 2px rgba(226, 196, 141, 0.25)); }
+}
+
+@keyframes reflection-star-twinkle-4 {
+  0%, 100% { opacity: 0.95; filter: brightness(0.95) drop-shadow(0 0 3.5px rgba(226, 196, 141, 0.35)); }
+  40% { opacity: 1; filter: brightness(1.07) drop-shadow(0 0 6.5px rgba(226, 196, 141, 0.6)); }
+  65% { opacity: 0.93; filter: brightness(0.93) drop-shadow(0 0 2.5px rgba(226, 196, 141, 0.25)); }
+  85% { opacity: 1; filter: brightness(1) drop-shadow(0 0 4px rgba(226, 196, 141, 0.4)); }
+}
+
+/* Night Sky Breathing Motion (28s to 40s slow cycle) */
+@keyframes milky-way-breathe {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.85;
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.025);
+    opacity: 0.96;
+  }
+}
+
+@keyframes cosmic-haze-drift {
+  0%, 100% {
+    transform: translateX(0px) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateX(12px) scale(1.03);
+    opacity: 0.92;
+  }
+}
+
+@keyframes horizon-amber-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scaleY(1.08);
+  }
+}
+
+@keyframes lantern-glow-signature {
+  0%, 100% { 
+    box-shadow: 0 0 35px -5px rgba(226, 196, 141, 0.25), 0 0 70px -15px rgba(226, 196, 141, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 0 55px 0px rgba(226, 196, 141, 0.45), 0 0 95px -10px rgba(226, 196, 141, 0.28); 
+  }
+}
+
+/* Three soft points of light for Gemini thinking state */
+@keyframes gemini-pulse-1 {
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  33% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 6px #E2C48D); }
+}
+
+@keyframes gemini-pulse-2 {
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  66% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 6px #B4A2E6); }
+}
+
+@keyframes gemini-pulse-3 {
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  90% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 6px #7AA8B8); }
+}
+
+.animate-milky-way {
+  animation: milky-way-breathe 32s ease-in-out infinite;
+}
+
+.animate-cosmic-haze {
+  animation: cosmic-haze-drift 40s ease-in-out infinite;
+}
+
+.animate-horizon-amber {
+  animation: horizon-amber-pulse 24s ease-in-out infinite;
+}
+
+.animate-star-twinkle-1 {
+  animation: reflection-star-twinkle-1 6.2s ease-in-out infinite;
+}
+
+.animate-star-twinkle-2 {
+  animation: reflection-star-twinkle-2 8.4s ease-in-out infinite;
+}
+
+.animate-star-twinkle-3 {
+  animation: reflection-star-twinkle-3 10.1s ease-in-out infinite;
+}
+
+.animate-star-twinkle-4 {
+  animation: reflection-star-twinkle-4 7.5s ease-in-out infinite;
+}
+
+.animate-lantern {
+  animation: lantern-glow-signature 3.8s ease-in-out infinite;
+}
+
+.animate-gemini-dot-1 {
+  animation: gemini-pulse-1 2.4s ease-in-out infinite;
+}
+
+.animate-gemini-dot-2 {
+  animation: gemini-pulse-2 2.4s ease-in-out infinite;
+}
+
+.animate-gemini-dot-3 {
+  animation: gemini-pulse-3 2.4s ease-in-out infinite;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-milky-way,
+  .animate-cosmic-haze,
+  .animate-horizon-amber,
+  .animate-star-twinkle-1,
+  .animate-star-twinkle-2,
+  .animate-star-twinkle-3,
+  .animate-star-twinkle-4,
+  .animate-lantern,
+  .animate-gemini-dot-1,
+  .animate-gemini-dot-2,
+  .animate-gemini-dot-3 {
+    animation: none !important;
+  }
+}

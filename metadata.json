@@ -1,0 +1,6 @@
+{
+  "name": "Lunara — Your Inner Sky",
+  "description": "A private, authenticated AI reflection companion to converse with Gemini, light lanterns of insight, and preserve memories as stars in your Inner Sky.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
